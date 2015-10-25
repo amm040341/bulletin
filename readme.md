@@ -1,27 +1,60 @@
-## Laravel PHP Framework
+# 佈告欄
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## 如何使用
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+1.請先將此專案 clone 下來
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+```
+$ git clone git@github.com:Peter654q/bulletin.git
+```
 
-## Official Documentation
+2.進入專案目錄
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+```
+$ cd bulletin
+```
 
-## Contributing
+3.將 .env.example 複製到 .env
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+```
+$ cp .env.example .env
+```
 
-## Security Vulnerabilities
+4.執行 composer install 來安裝需要的套件
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+```
+$ composer install
+```
 
-### License
+5.產生 laravel 用來加密的 key
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+```
+$ php artisan key:generate
+```
+
+6.執行以下指令
+
+```
+$ php artisan clear-compiled
+$ php artisan optimize
+```
+
+7.修改 .env 的設定，以符合你的環境
+
+## 使用 Homestead
+
+若你希望為這個專案單獨準備一個 Homestead 虛擬機，而不使用全域的 Homestead，那你可以下：
+
+```
+$ php vendor/bin/homestead make
+```
+
+他會產生 Homestead.yaml 在此專案的目錄下，根據你的需求修改過後即可使用
+
+```
+$ vagrant up
+```
+
+來開啟虛擬機
+
+詳細請看 http://laravel.com/docs/5.1/homestead#per-project-installation
